@@ -1,8 +1,14 @@
 <?php
 
-    // if (!empty($_GET["passwordLenght"])) {
-    //     echo "password incorrect";
-    // }
+function password_generate($n, $l, $s) 
+{
+  $numbers = '1234567890';
+  $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
+  $special = '!@#$%^&*?+';
+  return substr(str_shuffle($numbers), 0, $n).substr(str_shuffle($letters), 0, $l).substr(str_shuffle($special), 0, $s);
+}
+
+echo password_generate(5,3,1);
 
 ?>
 
@@ -50,6 +56,10 @@
             <div class="alert alert-info" role="alert">
                Nessun parametro valido inserito
             </div>
+            <?php } elseif(!empty($_GET["passwordLenght"])){?>
+                <div class="alert alert-success" role="alert">
+                    Password Generata Corretamente
+                </div>
             <?php } ?>
         <form action="index.php" method="get">
             <div class="row">
