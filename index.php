@@ -25,11 +25,12 @@
         form{
             background-color:white;
             border-radius:0.5rem;
-            height:400px;
             padding:1.5rem;
+            padding-right:10rem;
         }
-        .label-password{
-            margin-right:10rem;
+        .check-box-container{
+            margin-right:7rem;
+            margin-bottom:1rem;
         }
     </style>
     <div class="container">
@@ -46,15 +47,48 @@
             </div>
         <form action="index.php" method="get">
             <div class="row">
-                <div class="col-12 d-flex">
+                <div class="col-12 d-flex justify-content-between mb-4">
                     <label class='label-password' for="password">Lughezza password :</label>
                     <input class='p-2' type="text" name='password' id='password'>
                 </div>
             </div>
              <div class="row">
-                <div class="col-12 d-flex">
-                    <label class='label-password' for="password">Consenti ripetizioni di uno o più caratteri:</label>
-                    <input class='p-2' type="text" name='password' id='password'>
+                <div class="col-12 d-flex justify-content-between">
+                    <label for="password">Consenti ripetizioni di uno o più caratteri:</label>
+                    <div class="check-box-container d-flex flex-column">
+                    <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                         <label class="form-check-label" for="flexRadioDefault1">
+                            Si
+                         </label>
+                    </div>
+                    <div class="form-check mb-4">
+                       <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                       <label class="form-check-label" for="flexRadioDefault2">
+                          No
+                       </label>
+                    </div>
+                    <div class="check-box-container d-flex flex-column me-5">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Lettere
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Numeri
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Simboli
+                        </label>
+                    </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         <input class='btn btn-primary' type="submit" value="Invia">
