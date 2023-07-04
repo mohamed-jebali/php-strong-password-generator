@@ -8,8 +8,8 @@ function password_generate($n, $l, $s)
   return substr(str_shuffle($numbers), 0, $n).substr(str_shuffle($letters), 0, $l).substr(str_shuffle($special), 0, $s);
 }
 
-echo password_generate(5,3,1);
 
+$passwordCreated = password_generate($_GET["passwordLength"], 0, 0);
 
 ?>
 
@@ -63,7 +63,7 @@ echo password_generate(5,3,1);
                 </div>
             <?php } else {?>
                 <div class="alert alert-success" role="alert">
-                    Password Generata Corretamente
+                    Password Generata Corretamente : <?php echo $passwordCreated ;?>
                 </div>
             <?php } ?>
         <form action="index.php" method="get">
