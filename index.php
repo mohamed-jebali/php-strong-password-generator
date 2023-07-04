@@ -1,5 +1,9 @@
 <?php
 
+    // if (!empty($_GET["passwordLenght"])) {
+    //     echo "password incorrect";
+    // }
+
 ?>
 
 <!DOCTYPE html>
@@ -42,14 +46,16 @@
             <h2 class='text-center'>
                 Genera una password sicura
             </h2>
+            <?php if (empty($_GET["passwordLenght"])){?>
             <div class="alert alert-info" role="alert">
-                Nessun parametro valido inserito
+               Nessun parametro valido inserito
             </div>
+            <?php } ?>
         <form action="index.php" method="get">
             <div class="row">
                 <div class="col-12 d-flex justify-content-between mb-4">
                     <label class='label-password' for="password">Lughezza password :</label>
-                    <input class='p-2' type="text" name='password' id='password'>
+                    <input class='p-2' type="text" name='passwordLenght' id='password'>
                 </div>
             </div>
              <div class="row">
@@ -57,13 +63,13 @@
                     <label for="password">Consenti ripetizioni di uno o più caratteri:</label>
                     <div class="check-box-container d-flex flex-column">
                     <div class="form-check">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                          <input class="form-check-input" type="radio" name="onRepeteadCharacters" id="flexRadioDefault1">
                          <label class="form-check-label" for="flexRadioDefault1">
                             Si
                          </label>
                     </div>
                     <div class="form-check mb-4">
-                       <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                       <input class="form-check-input" type="radio" name="offRepeteadCharacters" id="flexRadioDefault2" checked>
                        <label class="form-check-label" for="flexRadioDefault2">
                           No
                        </label>
@@ -92,7 +98,7 @@
                 </div>
             </div>
         <input class='btn btn-primary' type="submit" value="Invia">
-        <input class='btn btn-secondary' type="submit" value="Annulla">
+        <input class='btn btn-secondary' type="reset" value="Annulla">
     </form>
             </div>
         </div>
