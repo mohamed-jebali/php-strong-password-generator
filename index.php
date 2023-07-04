@@ -1,16 +1,17 @@
 <?php
 
-function password_generate($n, $l, $s) 
-{
-  $numbers = '1234567890';
-  $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
-  $special = '!@#$%^&*?+';
-  return substr(str_shuffle($numbers), 0, $n).substr(str_shuffle($letters), 0, $l).substr(str_shuffle($special), 0, $s);
+function generateStrongPassword($length) {
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+    $password = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $randomIndex = rand(0, strlen($characters) - 1);
+        $password .= $characters[$randomIndex];
+    }
+    return $password;
 }
 
-
-$passwordCreated = password_generate($_GET["passwordLength"], 0, 0);
-
+$password = generateStrongPassword($_GET['passwordLenght']);
 ?>
 
 <!DOCTYPE html>
@@ -59,11 +60,11 @@ $passwordCreated = password_generate($_GET["passwordLength"], 0, 0);
             </div>
             <?php } elseif((!is_numeric($_GET["passwordLenght"]))){?>
                 <div class="alert alert-danger" role="alert">
-                    Password Errata
+                    Password errata inserisci un valore numerico
                 </div>
             <?php } else {?>
                 <div class="alert alert-success" role="alert">
-                    Password Generata Corretamente : <?php echo $passwordCreated ;?>
+                    Password generata correttamente : <?php echo $password ;?>
                 </div>
             <?php } ?>
         <form action="index.php" method="get">
