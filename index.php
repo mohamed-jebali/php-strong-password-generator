@@ -10,6 +10,7 @@ function password_generate($n, $l, $s)
 
 echo password_generate(5,3,1);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -52,11 +53,11 @@ echo password_generate(5,3,1);
             <h2 class='text-center'>
                 Genera una password sicura
             </h2>
-            <?php if (empty($_GET["passwordLenght"])){?>
+            <?php if (empty($_GET["passwordLenght"]) || (!is_numeric($_GET["passwordLenght"]))){?>
             <div class="alert alert-info" role="alert">
                Nessun parametro valido inserito
             </div>
-            <?php } elseif(!empty($_GET["passwordLenght"])){?>
+            <?php } elseif(is_numeric($_GET["passwordLenght"])){?>
                 <div class="alert alert-success" role="alert">
                     Password Generata Corretamente
                 </div>
