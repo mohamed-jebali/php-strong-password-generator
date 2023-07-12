@@ -1,7 +1,5 @@
 <?php
 
-$password = '';
-
 function generateStrongPassword($length) {
     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
     $password = '';
@@ -10,9 +8,10 @@ function generateStrongPassword($length) {
         $randomIndex = rand(0, strlen($characters) - 1);
         $password .= $characters[$randomIndex];
     }
+    
     return $password;
 }
 
-$password = generateStrongPassword($_GET['passwordLenght']);
 
 ?>
+

@@ -44,20 +44,21 @@ include __DIR__ . '/utilities/functions.php';
             <h2 class='text-center'>
                 Genera una password sicura
             </h2>
-            <?php if (empty($_GET["passwordLenght"])){?>
+            <?php if (empty($_GET["passwordLenght"]) || (!isset($_GET["passwordLenght"]))){?>
             <div class="alert alert-info" role="alert">
                Nessun parametro valido inserito
             </div>
-            <?php } elseif((!is_numeric($_GET["passwordLenght"]))){?>
+            <?php } elseif(!is_numeric($_GET["passwordLenght"])){?>
                 <div class="alert alert-danger" role="alert">
                     Password errata inserisci un valore numerico
                 </div>
             <?php } else {?>
+               <?php $generatedPassword = generateStrongPassword($_GET["passwordLenght"]); ?>
                 <div class="alert alert-success" role="alert">
-                    Password generata correttamente : <?php echo $password ;?>
+                   Password generata correttamente : <?php echo $generatedPassword ;?>
                 </div>
             <?php } ?>
-        <form action="index.php" method="get">
+        <form method="get">
             <div class="row">
                 <div class="col-12 d-flex justify-content-between mb-4">
                     <label class='label-password' for="password">Lughezza password :</label>
@@ -69,13 +70,13 @@ include __DIR__ . '/utilities/functions.php';
                     <label for="password">Consenti ripetizioni di uno o più caratteri:</label>
                     <div class="check-box-container d-flex flex-column">
                     <div class="form-check">
-                          <input class="form-check-input" type="radio" name="onRepeteadCharacters" id="flexRadioDefault1">
+                          <input class="form-check-input" type="radio" name="RepeteadCharacters" id="flexRadioDefault1">
                          <label class="form-check-label" for="flexRadioDefault1">
                             Si
                          </label>
                     </div>
                     <div class="form-check mb-4">
-                       <input class="form-check-input" type="radio" name="offRepeteadCharacters" id="flexRadioDefault2" checked>
+                       <input class="form-check-input" type="radio" name="RepeteadCharacters" id="flexRadioDefault2" checked>
                        <label class="form-check-label" for="flexRadioDefault2">
                           No
                        </label>
